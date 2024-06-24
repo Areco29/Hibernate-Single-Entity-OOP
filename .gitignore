@@ -38,3 +38,7 @@ HibernateSingleEntity/.classpath
 
 # Ignore .project file
 HibernateSingleEntity/.project
+ 
+# Ignore hibernate.cfg.xml file
+HibernateSingleEntity/src/hibernate.cfg.xml
+
