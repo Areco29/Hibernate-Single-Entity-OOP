@@ -11,6 +11,7 @@
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="show_sql">false</property><!-- If true shows hql in console-->
 		
-
+		<!-- Entity mapping -->
+		<mapping resource="mappings/Customer.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>

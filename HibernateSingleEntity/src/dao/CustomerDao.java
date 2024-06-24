@@ -17,7 +17,7 @@ public class CustomerDao {
 	
 	/* Begins a new database transaction.
 	 * 
-	 * throws HibernateException if there is an issue starting the transaction.
+	 * throws HibernateException If there is an issue starting the transaction.
 	 **/
 	private void beginOperation() throws HibernateException{
 		session = HibernateUtil.getSessionFactory().openSession();
@@ -27,8 +27,8 @@ public class CustomerDao {
 	/* Handles HibernateException by rolling back the transaction and throwing
 	 * a wrapped exception.
 	 * 
-	 * @param he the HibernateException to handle.
-	 * @throws HibernateException the wrapped exception with a custom message.
+	 * @param he The HibernateException to handle.
+	 * @throws HibernateException The wrapped exception with a custom message.
 	 **/
 	private void handleException(HibernateException he) throws HibernateException{
 		tx.rollback();
@@ -38,8 +38,8 @@ public class CustomerDao {
 	
 	/* Adds a new customer to the database.
 	 * 
-	 * @param newCustomer the new Customer to add.
-	 * @return the ID of the new customer added.
+	 * @param newCustomer The new Customer to add.
+	 * @return The ID of the new customer added.
 	 * @throws HibernateException If there is an issue adding the customer.
 	 **/
 	public int addCustomer(Customer newCustomer) {
@@ -62,7 +62,7 @@ public class CustomerDao {
 	}
 	
 	/* Updates an existing Customer in the database.
-	 * @param c the customer to update.
+	 * @param c The customer to update.
 	 * @throws HibernateException If there is an issue updating the customer.
 	 **/
 	public void updateCustomer(Customer c) {
@@ -83,7 +83,7 @@ public class CustomerDao {
 	
 	/* Deletes an existing customer from the database.
 	 * 
-	 * @param c the customer to delete.
+	 * @param c The customer to delete.
 	 * @throws HibernateException If there is an issue deleting the customer.
 	 **/
 	public void deleteCustomer(Customer c) {
@@ -103,15 +103,15 @@ public class CustomerDao {
 	}
 	
 	/* Retrieves a customer from the database by its ID.
-	 * @param id the identifier of the Customer to retrieve.
-	 * @return the Customer retrieved, or NULL if not found.
+	 * @param idCustomer The identifier of the Customer to retrieve.
+	 * @return The Customer retrieved, or NULL if not found.
 	 **/
-	public Customer retrieveCustomer(long id) {
+	public Customer retrieveCustomer(long idCustomer) {
 		Customer customer = null;
 		
 		try {
 			beginOperation();
-			customer = session.get(Customer.class, id);
+			customer = session.get(Customer.class, idCustomer);
 		}finally {
 			session.close();
 		}
@@ -120,7 +120,7 @@ public class CustomerDao {
 	}
 
 	 /* Retrieves a list of all customers from the database ordered by surname and name.
-	  * @return a list containing all customers with the specified order.
+	  * @return A list containing all customers with the specified order.
 	 **/
 	public List<Customer> retrieveCustomer() {
 		List<Customer> list = new ArrayList<Customer>();
@@ -136,5 +136,23 @@ public class CustomerDao {
 		return list;
 	}
 	
+	/* Retrieves a customer from the database by its nationalId
+	 * @param nationalId The national identifier to retrieve.
+	 * @return The Customer retrieved.
+	 **/
+	public Customer retrieveCustomer(int nationalId) {
+		Customer c= null;
+	
+		try {
+			beginOperation();
+			c = session.createQuery("from Customer c where c.nationalId = :nationalId",Customer.class)
+					.setParameter("nationalId", nationalId)
+					.uniqueResult();
+		}finally {
+			session.close();
+		}
+		
+		return c;
+	}
 	
 }
