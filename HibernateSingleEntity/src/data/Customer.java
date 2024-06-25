@@ -4,17 +4,17 @@ import java.time.LocalDate;
 
 public class Customer {
 	//Atributes
-	private int customerId;
+	private long customerId;
 	private String lastName;
 	private String firstName;
 	private int nationalId;
 	private LocalDate birthdate;
 	private boolean inactive;
 	
-	
+	//Empty constructor
 	public Customer(){}
 
-
+	//Constructor using fields
 	public Customer(String lastName, String firstName, int nationalId, LocalDate birthdate) {
 		super();
 		this.lastName = lastName;
@@ -24,13 +24,13 @@ public class Customer {
 		this.inactive = false;
 	}
 
-
-	public int getCustomerId() {
+	//Getters and Setters
+	public long getCustomerId() {
 		return customerId;
 	}
 
 
-	protected void setCustomerId(int customerId) {
+	protected void setCustomerId(long customerId) {
 		this.customerId = customerId;
 	}
 
@@ -84,7 +84,7 @@ public class Customer {
 		this.inactive = inactive;
 	}
 
-
+	//toString method
 	@Override
 	public String toString() {
 		return "Customer\n\tcustomerId: " + customerId + "\n\tlastName: " + lastName + "\n\tfirstName: " + firstName

@@ -7,9 +7,16 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+/* Utility class for Hibernate session management.*/
 public class HibernateUtil {
 	private static SessionFactory sessionFactory;
 
+	/* Retrives the Hibernate SessionFactory instance.
+	 * If not initialized, builds it using configuration from "hibernate.cfg.xml".
+	 * 
+	 * @return The SessionFactory instance.
+	 * @throws ExceptionInInitializerError If initialization fails.
+	 **/
 	public static SessionFactory getSessionFactory() {
 		try {
 			if (sessionFactory == null) {
