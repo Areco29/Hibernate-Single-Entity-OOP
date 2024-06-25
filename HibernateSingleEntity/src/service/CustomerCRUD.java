@@ -32,11 +32,11 @@ public class CustomerCRUD {
 
 	/* Updates an existing Customer in the database.
 	 * @param c The customer to update.
-	 * @throws Exception If there is a customer with the same nationalId.
+	 * @throws Exception If there is another customer with the same nationalId.
 	 **/
 	public void updateCustomer(Customer c) throws Exception {
 
-		if(dao.retrieveCustomer(c.getNationalId())!= null ) throw new Exception("ERROR(updateCustomer): A customer with the same nationalId already exists.");
+		if(dao.retrieveCustomer(c.getNationalId())!= null ) throw new Exception("ERROR(updateCustomer): Another customer with the same nationalId already exists.");
 		
 		dao.updateCustomer(c);
 	}
@@ -44,11 +44,11 @@ public class CustomerCRUD {
 	/* Deletes an existing customer from the database.
 	 * 
 	 * @param c The customer to delete.
-	 * @throws Exception If the customer doesn't exists.
+	 * @throws Exception If the customer doesn't exist.
 	 **/
 	public void deleteCustomer(Customer c) throws Exception {
 		
-		if(dao.retrieveCustomer(c.getCustomerId())==null) throw new Exception("ERROR(deleteCustomer): The customer to delete doesn't exists.");
+		if(dao.retrieveCustomer(c.getCustomerId())==null) throw new Exception("ERROR(deleteCustomer): The customer to delete doesn't exist.");
 		
 		dao.deleteCustomer(c);
 	}
