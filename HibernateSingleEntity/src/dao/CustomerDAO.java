@@ -11,7 +11,7 @@ import data.Customer;
 /*
  *  Data Access Object (DAO) for managing Customer entities using Hibernate.
  **/
-public class CustomerDao {
+public class CustomerDAO {
 	private Session session;
 	private Transaction tx;
 	

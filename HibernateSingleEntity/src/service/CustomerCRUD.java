@@ -3,14 +3,14 @@ package service;
 import java.time.LocalDate;
 import java.util.List;
 
-import dao.CustomerDao;
+import dao.CustomerDAO;
 import data.Customer;
 
 /* Java class implementing CRUD operations and others methods using the CustomerDAO
  * to interact with the database*/
 
 public class CustomerCRUD {
-	CustomerDao dao = new CustomerDao();
+	CustomerDAO dao = new CustomerDAO();
 	
 	/* Creates a new Customer and adds it to the database using the Customer DAO.
 	 * 
