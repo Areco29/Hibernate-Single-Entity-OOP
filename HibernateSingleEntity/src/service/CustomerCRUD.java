@@ -41,14 +41,16 @@ public class CustomerCRUD {
 		dao.updateCustomer(c);
 	}
 	
-	/* Deletes an existing customer from the database.
+	/* Deletes an existing customer from the database by its ID.
 	 * 
-	 * @param c The customer to delete.
+	 * @param idCustomer The identifier of the customer to delete.
 	 * @throws Exception If the customer doesn't exist.
 	 **/
-	public void deleteCustomer(Customer c) throws Exception {
+	public void deleteCustomer(long idCustomer) throws Exception {
+		Customer c = dao.retrieveCustomer(idCustomer);
 		
-		if(dao.retrieveCustomer(c.getCustomerId())==null) throw new Exception("ERROR(deleteCustomer): The customer to delete doesn't exist.");
+		
+		if(c==null) throw new Exception("ERROR(deleteCustomer): The customer to delete doesn't exist.");
 		
 		dao.deleteCustomer(c);
 	}
