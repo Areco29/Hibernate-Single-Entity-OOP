@@ -127,7 +127,7 @@ public class CustomerDao {
 		
 		try {
 			beginOperation();
-			list = session.createQuery("from Customer c order by c.surname asc, c.name asc",Customer.class)
+			list = session.createQuery("from Customer c order by c.lastName asc, c.firstName asc",Customer.class)
 					.getResultList();
 		}finally {
 			session.close();
