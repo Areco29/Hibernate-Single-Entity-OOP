@@ -87,7 +87,7 @@ public class Customer {
 	//toString method
 	@Override
 	public String toString() {
-		return "Customer\n\tcustomerId: " + customerId + "\n\tlastName: " + lastName + "\n\tfirstName: " + firstName
+		return "\nCustomer\n\tcustomerId: " + customerId + "\n\tlastName: " + lastName + "\n\tfirstName: " + firstName
 				+ "\n\tnationalId: " + nationalId + "\n\tbirthdate: " + birthdate + "\n\tinactive: " + inactive + "]";
 	}
 	
