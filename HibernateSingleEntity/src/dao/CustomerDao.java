@@ -47,7 +47,7 @@ public class CustomerDao {
 		
 		try {
 			beginOperation();
-			id = (int)session.save(newCustomer);
+			id = Integer.parseInt(session.save(newCustomer).toString());
 			tx.commit();
 			
 		}catch(HibernateException he) {
