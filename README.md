@@ -16,8 +16,9 @@ The Hibernate-Single-Entity-OOP project utilizes Hibernate ORM to manage the per
 # Setup Instructions:
 
 1. Clone the repository and ensure all necessary libraries (JAR files) are configured in the project build path.
-2. Configure `hibernate.cfg.xml` with your MySQL database credentials (username, password, database name).
-3. Execute the provided MySQL database script (`db-hibernate-single-entity.sql`) to set up the required database schema.
+2. Execute the provided MySQL database script (`db-hibernate-single-entity.sql`) to set up the required database schema.
+3. Configure `hibernate.cfg.xml` with your MySQL database credentials (username, password, database name).
+
 
 # Repository Notes:
 
